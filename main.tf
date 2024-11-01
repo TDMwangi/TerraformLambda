@@ -13,4 +13,6 @@ module "lambda" {
 
   source_file = "./modules/functions/lambda_function.py"
   output_path = "./modules/functions/lambda_function_payload.zip"
+
+  retention_in_days = 14
 }
