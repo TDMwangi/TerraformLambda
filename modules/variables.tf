@@ -12,3 +12,8 @@ variable "function_name" {
   description = "Unique name for the Lambda Function"
   type        = string
 }
+
+variable "runtime" {
+  description = "Identifier of the function's runtime"
+  type        = string
+}
