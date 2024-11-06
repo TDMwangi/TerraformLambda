@@ -17,3 +17,8 @@ variable "runtime" {
   description = "Identifier of the function's runtime"
   type        = string
 }
+
+variable "handler" {
+  description = "The function that will be executed when the Lambda function is triggered"
+  type        = string
+}
