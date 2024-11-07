@@ -22,3 +22,8 @@ variable "handler" {
   description = "The function that will be executed when the Lambda function is triggered"
   type        = string
 }
+
+variable "retention_in_days" {
+  description = "The number of days to retain the log events in the log group"
+  type        = number
+}
