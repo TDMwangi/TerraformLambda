@@ -11,3 +11,10 @@ data "aws_iam_policy_document" "lambda_assume_role_policy" {
     actions = ["sts:AssumeRole"]
   }
 }
+
+# Define the Lambda permissions
+data "aws_iam_policy_document" "lambda_iam_policy_document" {
+  statement {
+    effect = "Allow"
+  }
+}
