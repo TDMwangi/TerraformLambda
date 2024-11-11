@@ -16,5 +16,12 @@ data "aws_iam_policy_document" "lambda_assume_role_policy" {
 data "aws_iam_policy_document" "lambda_iam_policy_document" {
   statement {
     effect = "Allow"
+
+    actions = [
+      "Lambda:*",
+      "logs:*"
+    ]
+
+    resources = ["*"]
   }
 }
