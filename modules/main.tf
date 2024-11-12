@@ -25,3 +25,10 @@ data "aws_iam_policy_document" "lambda_iam_policy_document" {
     resources = ["*"]
   }
 }
+
+# Create an archive from the source file
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = var.source_file
+  output_path = var.output_path
+}
