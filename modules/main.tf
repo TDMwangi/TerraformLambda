@@ -32,3 +32,9 @@ data "archive_file" "lambda" {
   source_file = var.source_file
   output_path = var.output_path
 }
+
+# Create the IAM role
+resource "aws_iam_role" "iam_for_lambda" {
+  name               = "iam-for-lambda"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role_policy.json
+}
