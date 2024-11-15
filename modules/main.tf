@@ -44,3 +44,9 @@ resource "aws_iam_policy" "lambda_iam_policy" {
   name   = "lambda-iam-policy"
   policy = data.aws_iam_policy_document.lambda_iam_policy_document.json
 }
+
+# Attach the policy to the role
+resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
+  role       = aws_iam_role.iam_for_lambda.name
+  policy_arn = aws_iam_policy.lambda_iam_policy.arn
+}
