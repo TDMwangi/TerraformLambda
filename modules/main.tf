@@ -50,3 +50,14 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = aws_iam_policy.lambda_iam_policy.arn
 }
+
+# Create the Lambda function
+resource "aws_lambda_function" "lambda_function" {
+  function_name = var.function_name
+  filename      = var.output_path
+  runtime       = var.runtime
+  handler       = var.handler
+  role          = aws_iam_role.iam_for_lambda.arn
+
+  source_code_hash = data.archive_file.lambda.output_base64sha256
+}
