@@ -61,3 +61,9 @@ resource "aws_lambda_function" "lambda_function" {
 
   source_code_hash = data.archive_file.lambda.output_base64sha256
 }
+
+# CloudWatch log group for the Lambda function
+resource "aws_cloudwatch_log_group" "lambda_log_group" {
+  name              = "/aws/lambda/${var.function_name}"
+  retention_in_days = var.retention_in_days
+}
